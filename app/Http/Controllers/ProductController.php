@@ -14,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::latest()->paginate($perPage = 5, $columns = ['*']);
+        return view('products.index', compact('products'))->with(request()->input('page'));
     }
 
     /**
@@ -52,7 +53,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('products.show', compact('product'));
     }
 
     /**
@@ -63,7 +64,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -75,7 +76,12 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        //validate input
+        $request->validate(['name' => 'required', 'detail' => 'required']);
+
+        $product->update($request->all());
+        // redirect user
+        return redirect()->route('products.index')->with('success', 'Запись успешно обновлена');
     }
 
     /**

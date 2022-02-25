@@ -8,7 +8,7 @@
         <div class="pull-left">
             <h2>Добавить</h2>
         </div>
-        <div class="pull-right" style="float: right;">
+        <div class="pull-right" style="float: right">
             <a class="btn btn-primary" href="{{ route('products.index') }}"> Назад</a>
         </div>
     </div>
