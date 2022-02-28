@@ -4,7 +4,7 @@
  <div class="row">
         <div class="col-lg-12">
             <div class="pull-left">
-                <h2>Laravel CRUD</h2>
+                <h2>Перечень товаров</h2>
             </div>
             <div class="pull-right" style="float: right">
                 <a class="btn btn-success" href="{{ route('products.create') }}"> Добавить</a>
@@ -25,6 +25,7 @@
             <th>Описание</th>
             <th width="400px">Действие</th>
         </tr>
+        
         @foreach ($products as $product)
         <tr>
             <td>{{ $product->id }}</td>
